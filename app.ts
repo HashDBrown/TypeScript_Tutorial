@@ -4,13 +4,20 @@ console.log('Hello World');
 // strings- all text values 'Hi', "Hi", `Hi`
 // boolean- true or false
 
-function add(num1: number, num2: number) :number{
-    console.log(typeof num1);
-    return num1 + num2;
+function add(num1: number, num2: number, showResult: boolean, phrase: string){
+    // console.log(typeof num1);
+    const result: number = num1 + num2;
+    if(showResult){
+        console.log(phrase + result);
+    }else{
+        return num1 + num2;
+    }
 }
 
 const number1 = 10;
 const number2 = 2.8;
+const printResult = true;
+const phrase = 'Result is: ';
 
-const result = add(number1, number2);
-console.log(result);
+// const result = add(number1, number2, printResult);
+add(number1, number2, printResult, phrase);
