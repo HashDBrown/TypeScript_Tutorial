@@ -1,6 +1,8 @@
 //union type
 
-function combine(input1: number | string, input2: number | string, resultConversion: 'as-number' | 'as-text') {
+type Combinable = number | string; //type alias
+
+function combine(input1: Combinable, input2: number | string, resultConversion: 'as-number' | 'as-text') { //literal type
     // console.log(typeof num1);
     let result;
     if (typeof input1 === 'number' && typeof input2 === 'number') { //union type
