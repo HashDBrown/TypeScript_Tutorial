@@ -40,4 +40,19 @@ for (const hobby of person.hobbies) {
     // console.log(hobby.map()); // !!! ERROR !!!
 }
 
+//enum (custom type)
+enum Role { ADMIN, READ_ONLY, AUTHOR };
+//Role.ADMIN = 0, Role.READ_ONLY = 1, Role.AUTHOR = 2
+
+const person2 = {
+    name: 'Maximilian',
+    age: 30,
+    hobbies: ['Sports', 'Cooking'],
+    role: Role.ADMIN
+};
+
+if (person2.role === Role.ADMIN) {
+    console.log('is admin');
+}
+
 console.log(person.name);
