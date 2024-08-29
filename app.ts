@@ -1,58 +1,23 @@
-//objects
+//union type
 
-// {} is a type of object
-//typescrips notation for objects is key value pairs
-const person: {
-    name: string;
-    age: number;
-    hobbies: string[];
-    role: [number, string]; //tuple
-}= {
-    name: 'Maximilian',
-    age: 30,
-    hobbies: ['Sports', 'Cooking'], //infered hobbies is an array of strings
-    role: [2, 'author'] //union type
-};
+function combine(input1: number | string, input2: number | string, resultConversion: 'as-number' | 'as-text') {
+    // console.log(typeof num1);
+    let result;
+    if (typeof input1 === 'number' && typeof input2 === 'number') { //union type
+        result = input1 + input2;
+    } else {
+        result = input1.toString() + input2.toString();
+    }
+    if (resultConversion === 'as-number') {
+        return +result;
+    } else {
+        return result.toString();
+    }
 
-person.role.push('admin');
-
-let favoriteActivities: string[]; //array of strings
-
-//array of type any can store any type of data
-// let favoriteActivities: any[];
-
-//we can be more specific
-// const person2: {
-//     name: string;
-//     age: number;
-// } = {
-//     name: 'Maximilian',
-//     age: 30
-// };
-
-
-//Arrays in typescript
-//types of arrays can be flexible or strict
-
-//for-loop
-for (const hobby of person.hobbies) {
-    console.log(hobby.toUpperCase);
-    // console.log(hobby.map()); // !!! ERROR !!!
 }
 
-//enum (custom type)
-enum Role { ADMIN, READ_ONLY, AUTHOR };
-//Role.ADMIN = 0, Role.READ_ONLY = 1, Role.AUTHOR = 2
+const combineAges = combine(30, 26, 'as-number');
+console.log(combineAges);
 
-const person2 = {
-    name: 'Maximilian',
-    age: 30,
-    hobbies: ['Sports', 'Cooking'],
-    role: Role.ADMIN
-};
-
-if (person2.role === Role.ADMIN) {
-    console.log('is admin');
-}
-
-console.log(person.name);
+const combineStringAges = combine('Max', 'Anna' , 'as-text');
+console.log(combineStringAges);
