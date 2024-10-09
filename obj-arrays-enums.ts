@@ -35,7 +35,7 @@ let favoriteActivities: string[]; //array of strings
 //types of arrays can be flexible or strict
 
 //for-loop
-for (const hobby of person.hobbies) {
+for (const hobby of person.hobbies) {//
     console.log(hobby.toUpperCase);
     // console.log(hobby.map()); // !!! ERROR !!!
 }
